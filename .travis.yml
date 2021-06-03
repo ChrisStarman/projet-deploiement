@@ -12,16 +12,12 @@ cache:
 
 build_app:
   stage: build
-  only:
-    - merge_requests
   script:
     - npm install
     - npm run build
 
 test:
   stage: test
-  only:
-    - merge_requests
   dependencies:
     - build_app
   script:
