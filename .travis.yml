@@ -1,0 +1,27 @@
+node_js:
+  - "12"
+
+stages:
+  - build
+  - test
+
+cache:
+  paths:
+    - node_modules/
+
+build_app:
+  stage: build
+  only:
+    - master
+  script:
+    - npm install
+    - npm run build
+
+test:
+  stage: test
+  only:
+    - merge_requests
+  dependencies:
+    - build_app
+  script:
+    - npm run test
