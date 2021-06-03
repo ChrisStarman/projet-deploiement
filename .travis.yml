@@ -13,7 +13,7 @@ cache:
 build_app:
   stage: build
   only:
-    - master
+    - merge_requests
   script:
     - npm install
     - npm run build
